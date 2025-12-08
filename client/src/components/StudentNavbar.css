@@ -1,0 +1,12 @@
+/* src/components/StudentNavbar.css */
+/* If you pasted the Navbar CSS into App.css, you can leave this empty or delete it. */
+/* Otherwise, this overrides specific Student Navbar styles */
+.logout-btn-small {
+  background-color: #fee2e2;
+  color: #991b1b;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+}
+.logout-btn-small:hover {
+  background-color: #fecaca;
+}
