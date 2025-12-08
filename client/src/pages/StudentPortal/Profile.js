@@ -29,7 +29,7 @@ function Profile() {
         if (res.data) {
           setUser({
             name: res.data.full_name,
-            id: res.data.student_reg_no || 'N/A', 
+            id: res.data.reg_id || 'N/A', 
             email: res.data.email,
             dept: res.data.department
           });
