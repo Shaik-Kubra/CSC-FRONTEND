@@ -1,0 +1,101 @@
+/* 🌊 Beautiful Teal Gradient Background */
+.faculty-login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #005461, #018790, #00B7B5);
+  background-size: 300% 300%;
+  animation: smoothFlow 10s ease infinite;
+}
+
+@keyframes smoothFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* 🧊 Frosted Glass Login Card */
+.faculty-login-card {
+  width: 360px;
+  background: rgba(244, 244, 244, 0.92); /* Soft White */
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 🏷 Title */
+.faculty-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #005461;
+  margin-bottom: 20px;
+}
+
+/* ✏ Inputs */
+.faculty-input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #00B7B5;
+  background: #F4F4F4;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.faculty-input:focus {
+  background: #ffffff;
+  border-color: #018790;
+}
+
+/* ⚠ Error */
+.faculty-error-msg {
+  background: #ff6b6b;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* 🔐 Login Button */
+.faculty-login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #018790;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.25s;
+  font-weight: 600;
+}
+
+.faculty-login-btn:hover {
+  background: #005461;
+  transform: scale(1.04);
+}
+
+/* 🔗 Signup link */
+.faculty-signup-link {
+  margin-top: 15px;
+}
+
+.faculty-signup-link a {
+  color: #005461;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.faculty-signup-link a:hover {
+  text-decoration: underline;
+}

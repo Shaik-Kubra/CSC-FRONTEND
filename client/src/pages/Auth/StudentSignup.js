@@ -1,112 +1,124 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { supabase } from '../../api/supabaseClient';
-import api from '../../api/api';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../../api/supabaseClient";
+import api from "../../api/api";
+import "./StudentSignup.css";
 
 function StudentSignup() {
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    name: '',
-    id: '',       // This is the Register Number (e.g., R220308)
-    email: '',
-    department: '',
-    password: ''
+    name: "",
+    id: "",
+    email: "",
+    department: "",
+    password: ""
   });
+
+  const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const handleSignup = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErrorMsg("");
 
     try {
-      // 1. Create Auth User (Supabase Security)
+      // Step 1: Create user in Supabase
       const { data, error } = await supabase.auth.signUp({
         email: formData.email,
-        password: formData.password,
+        password: formData.password
       });
 
       if (error) throw error;
 
-      // 2. Send Profile Data to Flask
-      // We map 'formData.id' to 'student_reg_no' so the backend saves it in the 'reg_id' column
-      await api.post('/register-student', {
-        id: data.user.id,             // The UUID from Supabase Auth
+      // Step 2: Save profile to Flask
+      await api.post("/register-student", {
+        id: data.user.id,
         full_name: formData.name,
-        student_reg_no: formData.id,  // <--- Mapped to reg_id in backend
+        student_reg_no: formData.id,
         email: formData.email,
         department: formData.department
       });
 
-      alert("Account created successfully! You can now login.");
-      navigate('/student-login');
+      alert("Student account created successfully!");
+      navigate("/student-login");
 
-    } catch (error) {
-      alert("Signup Error: " + error.message);
+    } catch (err) {
+      setErrorMsg(err.message || "Signup failed.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="auth-container">
-      <div className="box auth-form">
-        <h3>Create Student Account</h3>
-        <form onSubmit={handleSignup}>
-          
-          <label>Full Name</label>
-          <input 
-            name="name" 
-            placeholder="e.g. John Doe" 
-            onChange={handleChange} 
-            required 
-          />
+    <div className="student-signup-container">
+      <div className="student-signup-card">
+        <h3 className="signup-title">Create Student Account</h3>
 
-          <label>Register ID (Student ID)</label>
-          <input 
-            name="id" 
-            placeholder="e.g. R220308" 
-            onChange={handleChange} 
-            required 
-          />
-
-          <label>Department</label>
-          <input 
-            name="department" 
-            placeholder="e.g. CSE" 
-            onChange={handleChange} 
-            required 
-          />
-
-          <label>Email</label>
-          <input 
-            name="email" 
-            type="email" 
-            placeholder="e.g. student@rguktrkv.ac.in" 
-            onChange={handleChange} 
-            required 
-          />
-
-          <label>Password</label>
-          <input 
-            name="password" 
-            type="password" 
-            placeholder="Minimum 6 characters" 
-            onChange={handleChange} 
-            required 
-          />
-          
-          <div className="btn-group">
-            <button type="submit" className="action-btn" disabled={loading}>
-              {loading ? "Creating..." : "Create Account"}
-            </button>
-            <button type="button" onClick={() => navigate('/')} className="cancel-btn">
-              Cancel
-            </button>
+        {errorMsg && (
+          <div className="student-error-msg">
+            ⚠ {errorMsg}
           </div>
+        )}
+
+        <form onSubmit={handleSignup}>
+          <input
+            className="signup-input"
+            name="name"
+            placeholder="Full Name"
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            className="signup-input"
+            name="id"
+            placeholder="Student Reg No"
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            className="signup-input"
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            className="signup-input"
+            name="department"
+            placeholder="Department"
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            className="signup-input"
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            required
+          />
+
+          <button className="signup-btn" type="submit" disabled={loading}>
+            {loading ? "Creating..." : "Create Account"}
+          </button>
+
+          <button
+            type="button"
+            className="cancel-btn"
+            onClick={() => navigate("/")}
+          >
+            Cancel
+          </button>
         </form>
       </div>
     </div>

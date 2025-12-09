@@ -1,0 +1,109 @@
+/* 🌈 Aqua Teal Background Gradient (your palette) */
+.student-login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #005461, #018790, #00B7B5);
+  background-size: 300% 300%;
+  animation: bgFlow 9s ease infinite;
+}
+
+@keyframes bgFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌟 Modern Frosted Glass Login Card */
+.student-login-card {
+  width: 370px;
+  padding: 35px;
+  background: rgba(244, 244, 244, 0.92); /* Soft white #F4F4F4 */
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px);
+  animation: fadeIn 1s ease-out;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ✨ Title Styling */
+.login-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #005461;
+  margin-bottom: 18px;
+}
+
+/* 📝 Inputs (Soft, clean, elegant) */
+.login-input {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+
+  border: 2px solid #E0EDED;
+  background: #fafafa;
+  font-size: 16px;
+
+  transition: 0.3s ease;
+}
+
+.login-input:focus {
+  border-color: #00B7B5;
+  box-shadow: 0 0 8px rgba(0, 183, 181, 0.4);
+  background: #ffffff;
+}
+
+/* ⚠ Error Message */
+.error-msg {
+  background: #d9534f;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* 🌟 Login Button (Teal Gradient) */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #00B7B5, #018790);
+  color: white;
+
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.28s ease;
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #018790, #005461);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 84, 97, 0.45);
+}
+
+/* 🔗 Signup Link */
+.signup-link {
+  margin-top: 18px;
+}
+
+.signup-link a {
+  color: #005461;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}

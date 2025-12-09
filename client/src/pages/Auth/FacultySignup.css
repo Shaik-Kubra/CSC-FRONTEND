@@ -1,0 +1,105 @@
+/* 🌈 Background Gradient Using Your Color Palette */
+.faculty-signup-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #005461, #018790, #00B7B5);
+  background-size: 300% 300%;
+  animation: softFlow 8s ease infinite;
+}
+
+@keyframes softFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* 🌟 Signup Card */
+.faculty-signup-card {
+  width: 380px;
+  background: #F4F4F4;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeSlide 0.8s ease-out;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Title */
+.signup-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #005461;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.signup-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 2px solid #00B7B5;
+  background: #ffffff;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.signup-input:focus {
+  border-color: #005461;
+  background: #e8ffff;
+}
+
+/* Error Message */
+.faculty-error-msg {
+  background: #d9534f;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Sign Up Button */
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  background: #018790;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.signup-btn:hover {
+  background: #005461;
+  transform: scale(1.03);
+}
+
+/* Cancel Button */
+.cancel-btn {
+  width: 100%;
+  padding: 12px;
+  background: #00B7B5;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.cancel-btn:hover {
+  background: #018790;
+  transform: scale(1.03);
+}
